@@ -1,0 +1,22 @@
+{
+  "name": "ts-workspaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf \"packages/**/dist\" \"packages/**/*.tsbuildinfo\" \"packages/**/*.js\"",
+    "build": "tsc -b tsconfig.build.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/common",
+    "packages/dao",
+    "packages/service",
+    "packages/api"
+  ],
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
