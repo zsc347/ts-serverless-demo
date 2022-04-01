@@ -6,7 +6,13 @@ const log4jConfig: Configuration = {
       type: "console",
     },
   },
-  categories: {},
+  categories: {
+    default: {
+      appenders: ["default"],
+      level: "debug",
+      enableCallStack: true,
+    },
+  },
 };
 
 export default log4jConfig;

@@ -3,6 +3,6 @@ import log4jConfig from "./log4j.conf";
 
 configure(log4jConfig);
 
-const log = getLogger();
+const logger = getLogger();
 
-export { log };
+export { logger };

@@ -1,4 +1,4 @@
-import { log } from "@tsw/common";
+import { logger } from "@tsw/common";
 
 export interface TaskItem {
   tid: string;
@@ -6,20 +6,30 @@ export interface TaskItem {
 
 class TaskDao {
   public async save(item: TaskItem) {
-    log.debug("save", item);
+    logger.debug("save", item);
   }
 
   public async delete(tid: string) {
-    log.debug("delete", tid);
+    logger.debug("delete", tid);
   }
 
   public async list(): Promise<TaskItem[]> {
-    log.debug("list");
-    return [];
+    logger.debug("list");
+    return [
+      {
+        tid: "task1",
+      },
+      {
+        tid: "task2",
+      },
+      {
+        tid: "task3",
+      },
+    ];
   }
 
   public async get(tid: string) {
-    log.debug("get {}", tid);
+    logger.debug(`get task ${tid}`);
   }
 }
 
