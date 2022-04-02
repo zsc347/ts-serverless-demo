@@ -1,22 +1,30 @@
 {
-  "name": "ts-workspaces",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "clean": "rimraf \"packages/**/dist\" \"packages/**/*.tsbuildinfo\" \"packages/**/*.js\"",
-    "build": "tsc -b tsconfig.build.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "workspaces": [
-    "packages/common",
-    "packages/dao",
-    "packages/service",
-    "packages/api"
-  ],
-  "devDependencies": {
-    "rimraf": "^3.0.2"
-  }
+    "name": "ts-workspaces",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rimraf \"packages/**/dist\" \"packages/**/*.tsbuildinfo\" \"packages/**/*.js\"",
+        "build": "tsc -b tsconfig.build.json",
+        "format": "prettier --write .",
+        "lint": "eslint --fix --ext .ts,.tsx .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "workspaces": [
+        "packages/common",
+        "packages/dao",
+        "packages/service",
+        "packages/api"
+    ],
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.17.0",
+        "eslint": "^8.12.0",
+        "prettier": "^2.6.1",
+        "rimraf": "^3.0.2"
+    },
+    "dependencies": {
+        "@typescript-eslint/parser": "^5.17.0"
+    }
 }

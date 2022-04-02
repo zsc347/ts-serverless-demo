@@ -1,13 +1,13 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist"
-  },
-  "include": ["src"],
-  "references": [
-    {
-      "path": "../dao"
-    }
-  ]
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist"
+    },
+    "include": ["src"],
+    "references": [
+        {
+            "path": "../dao"
+        }
+    ]
 }

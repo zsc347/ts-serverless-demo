@@ -1,18 +1,18 @@
 {
-  "name": "@tsw/dao",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "compile": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@tsw/common": "1.0.0",
-    "aws-sdk": "^2.1104.0",
-    "log4js": "^6.4.4"
-  }
+    "name": "@tsw/dao",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "compile": "tsc",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@tsw/common": "1.0.0",
+        "aws-sdk": "^2.1104.0",
+        "log4js": "^6.4.4"
+    }
 }
