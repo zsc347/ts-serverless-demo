@@ -2,13 +2,12 @@
     "name": "ts-workspaces",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
     "scripts": {
-        "clean": "rimraf \"packages/**/dist\" \"packages/**/*.tsbuildinfo\" \"packages/**/*.js\"",
+        "watch": "tsc -b tsconfig.build.json -w",
         "build": "tsc -b tsconfig.build.json",
+        "clean": "rimraf \"packages/**/dist\" \"packages/**/*.tsbuildinfo\" \"packages/**/*.js\"",
         "format": "prettier --write .",
-        "lint": "eslint --fix --ext .ts,.tsx .",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "lint": "eslint --fix --ext .ts,.tsx ."
     },
     "author": "",
     "license": "ISC",

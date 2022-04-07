@@ -1,2 +1,2 @@
-export { metricRouter } from "./metrics";
-export { taskRouter } from "./tasks";
+export { metricRouter } from "./metrics-router";
+export { taskRouter } from "./tasks-router";
