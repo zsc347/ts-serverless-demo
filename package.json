@@ -6,10 +6,12 @@
         "prepare": "npm run compile && husky install",
         "compile": "tsc -b tsconfig.build.json",
         "watch": "tsc -b tsconfig.build.json -w",
+        "test": "npm run test --workspaces --if-present",
         "clean": "rimraf \"packages/**/dist\" \"packages/**/*.tsbuildinfo\" \"packages/**/*.js\"",
         "format": "prettier --write .",
         "lint": "eslint --cache --fix --ext .ts,.tsx .",
-        "pre-commit": "npx pretty-quick --staged && npm run lint"
+        "lint-only": "eslint --cache --ext .ts,.tsx .",
+        "pre-commit": "npx pretty-quick --staged &&  npm run lint-only"
     },
     "author": "",
     "license": "ISC",

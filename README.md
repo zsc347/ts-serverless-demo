@@ -103,6 +103,16 @@ Reference
 -   https://blog.thoughtspile.tech/2021/06/14/faster-pre-commit/
 -   https://prettier.io/docs/en/precommit.html
 
+## Github CI
+
+Github CI is based on github actions.
+
+Whenever push to any branch, `pre-commit` and `test` will run so we can check whether project in in good status.
+
+Reference
+
+-   https://docs.github.com/en/actions
+
 ## Useful commands
 
 Build so types can be referenced
