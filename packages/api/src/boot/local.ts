@@ -5,7 +5,7 @@ import app from "../app";
 function main() {
     const port = 3000;
     app.listen(port);
-    logger.info(`${process.env.PRODUCT} listening on ${port}`);
+    logger.info(`User '${process.env.USER}',  listening on ${port}`);
 }
 
 main();

@@ -34,11 +34,14 @@ Monitor files change and copmpile just in time.
 
 ## Bootstrap
 
+Watch files change and starging incremental compilation.
+
 ```
 npm run watch
 ```
 
-`npm run watch` is also configured as a vscode task. You can also use short key `ctrl+p` open command panel, then `> Run task` and select task `npm: watch`.
+`npm run watch` is also configured as a vscode task.
+With short key `ctrl+p` open command panel, then use command `> Run task` and select task `npm: watch`.
 
 Local bootstrap is under `packages/api` module.
 
@@ -48,14 +51,14 @@ npm run start
 cd -
 ```
 
-then open `http://localhost:3000/v1/metadata`.
+Open `http://localhost:3000/v1/metadata`.
 
 API should be avavalible.
 
 ## Test
 
-Test config is under each sub module.
-Currently only service modules configured tests with jest(ts-jest).
+Tests is confifured for each sub module.
+Currently only `service` module configured tests with jest(ts-jest).
 
 ```
 cd packages/service
@@ -69,6 +72,20 @@ Reference
 
 -   https://jestjs.io/docs/configuration
 -   https://github.com/mtiller/ts-jest-sample
+
+## Typescript Debugging
+
+This project use vscode built-in debugging support for launch and debugging.
+
+After start task `npm run watch` or run vscode task `> Run Task > npm: watch`,
+Open any ts file and with short key `F5`, the ts file will run with debug mode.
+
+Reference
+
+-   https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_load-environment-variables-from-external-file-node
+-   https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration
+
+The configuration file is under `.vscode/launch.json`
 
 ## Useful commands
 

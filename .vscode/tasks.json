@@ -5,9 +5,8 @@
             "type": "npm",
             "script": "watch",
             "group": "build",
-            "problemMatcher": [],
             "label": "npm: watch",
-            "detail": "tsc -b tsconfig.build.json -w"
+            "detail": "tsc -b tsconfig.build.json -w",
         }
     ]
 }

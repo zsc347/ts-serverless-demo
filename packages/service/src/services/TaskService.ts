@@ -1,6 +1,5 @@
 import { taskDao } from "@tsw/dao";
 import { TaskItem } from "@tsw/dao/src/daos/TaskDao";
-
 export class TaskService {
     public async list() {
         return taskDao.list();

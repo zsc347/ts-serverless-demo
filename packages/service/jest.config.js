@@ -7,7 +7,7 @@ module.exports = {
     // Files under `__tests__` folder and end with `.test.ts` or `.spec.ts`
     testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     // Ignore lib and node_modules folder
-    testPathIgnorePatterns: ["/lib/", "/node_modules/"],
+    testPathIgnorePatterns: ["/lib/", "/dist/", "/node_modules/"],
     moduleFileExtensions: ["ts", "js", "json", "node"],
     collectCoverage: true
 };
