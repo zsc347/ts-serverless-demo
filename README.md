@@ -14,12 +14,13 @@ Plugins
 
 -   eslint
 -   prettier
+-   shell-format
 
 Dependency
 
 ```
-npm >= 8
-node >= 14
+npm >= 8.x
+node >= 14.x
 ```
 
 ## Prepare environment
@@ -89,6 +90,18 @@ Launch configuration is `.vscode/launch.json`
 
 Logging is configured with [log4js](https://github.com/log4js-node/log4js-node) which provide a unified interface for logging and
 [source-map-support](https://github.com/evanw/node-source-map-support#readme) which show correct ts file position rather than nonsense js position of compiled file.
+
+## Git Hooks
+
+Hooks is configured using [husky](https://typicode.github.io/husky/#/?id=install).
+
+When ever developer trying to commit, `npm run pre-commit` will run so code style and lint rules can be guaranteed.
+
+Reference
+
+-   https://typicode.github.io/husky
+-   https://blog.thoughtspile.tech/2021/06/14/faster-pre-commit/
+-   https://prettier.io/docs/en/precommit.html
 
 ## Useful commands
 

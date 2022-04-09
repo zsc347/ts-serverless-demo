@@ -6,7 +6,7 @@
             "script": "watch",
             "group": "build",
             "label": "npm: watch",
-            "detail": "tsc -b tsconfig.build.json -w",
+            "detail": "tsc -b tsconfig.build.json -w"
         }
     ]
 }

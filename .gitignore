@@ -4,4 +4,6 @@ dist/
 **/*.tsbuildinfo
 **/*.js.map
 
+.eslintcache
+
 .env
