@@ -1,3 +1,4 @@
+import "source-map-support/register";
 import { Configuration } from "log4js";
 
 const log4jConfig: Configuration = {
@@ -6,7 +7,7 @@ const log4jConfig: Configuration = {
             type: "console",
             layout: {
                 type: "pattern",
-                pattern: "%d %p %c [%f{2}:%l:%o] %m%n"
+                pattern: "%d %p %c [%f{3}:%l:%o] %m%n"
             }
         }
     },

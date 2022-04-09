@@ -30,8 +30,6 @@ Intall dependency.
 npm install
 ```
 
-Monitor files change and copmpile just in time.
-
 ## Bootstrap
 
 Watch files change and starging incremental compilation.
@@ -78,14 +76,19 @@ Reference
 This project use vscode built-in debugging support for launch and debugging.
 
 After start task `npm run watch` or run vscode task `> Run Task > npm: watch`,
-Open any ts file and with short key `F5`, the ts file will run with debug mode.
+Open any ts file and with short key `F5`, the ts file will run in debug mode.
 
 Reference
 
 -   https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_load-environment-variables-from-external-file-node
 -   https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration
 
-The configuration file is under `.vscode/launch.json`
+Launch configuration is `.vscode/launch.json`
+
+## Logging
+
+Logging is configured with [log4js](https://github.com/log4js-node/log4js-node) which provide a unified interface for logging and
+[source-map-support](https://github.com/evanw/node-source-map-support#readme) which show correct ts file position rather than nonsense js position of compiled file.
 
 ## Useful commands
 
