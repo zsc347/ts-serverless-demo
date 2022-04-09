@@ -1,18 +1,17 @@
 import { taskDao } from "@tsw/dao";
+import { TaskItem } from "@tsw/dao/src/daos/TaskDao";
 
 export class TaskService {
     public async list() {
         return taskDao.list();
     }
 
-    public async add() {
-        taskDao.save({
-            tid: "task-1"
-        });
+    public async add(task: TaskItem) {
+        taskDao.save(task);
     }
 
-    public async delete() {
-        taskDao.delete("task-1");
+    public async delete(tid: string) {
+        taskDao.delete(tid);
     }
 }
 
