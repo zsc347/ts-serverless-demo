@@ -1,5 +1,5 @@
 import express from "express";
-import { metricRouter, taskRouter } from "./routes";
+import { metricRouter, taskRouter } from "../routes";
 
 const app = express();
 

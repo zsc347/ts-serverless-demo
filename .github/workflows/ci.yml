@@ -19,7 +19,9 @@ jobs:
               run: |
                   npm install
                   npm run pre-commit
-                  npm test --coverage
             - name: Test
               run: |
                   npm test
+            - name: Build
+              run: |
+                  npm run compile

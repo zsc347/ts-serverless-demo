@@ -5,7 +5,7 @@ import { logger } from "@tsw/common";
 const router = Router();
 
 router.get("/tasks", async (req, res) => {
-    logger.debug("get tasks", req);
+    logger.debug(`request path: [${req.path}]`);
     const items = await taskService.list();
     res.json({ items });
 });

@@ -1,8 +1,6 @@
-# TS serverless demo
+# TS serverless monospace demo
 
-ON THE WAY ...
-
-A Demo project for build AWS Lambda server with typescript and npm workspace.
+A Demo project for deploy API with AWS Lambda & AWS API gateway with typescript and npm workspace.
 
 ## Requirements
 
@@ -14,7 +12,7 @@ Plugins
 
 -   eslint
 -   prettier
--   shell-format
+-   shell-format (optional for format shellscript etc...)
 
 Dependency
 
@@ -56,7 +54,7 @@ API should be avavalible.
 
 ## Test
 
-Tests is confifured for each sub module.
+Tests is configured for each sub module.
 Currently only `service` module configured tests with jest(ts-jest).
 
 ```
@@ -103,9 +101,9 @@ Reference
 -   https://blog.thoughtspile.tech/2021/06/14/faster-pre-commit/
 -   https://prettier.io/docs/en/precommit.html
 
-## Github CI
+## CI
 
-Github CI is based on github actions.
+CI is based on github actions.
 
 Whenever push to any branch, `pre-commit` and `test` will run so we can check whether project in in good status.
 
@@ -113,7 +111,60 @@ Reference
 
 -   https://docs.github.com/en/actions
 
-## Useful commands
+## Deploy to AWS
+
+This section assume you already got an AWS account. And know basic usage of AWS.
+
+We use [Serverless](https://www.serverless.com/framework/docs) framework to generate AWS cloudformation template files.
+
+Also developers can use it for deploy.
+
+For continuous deployment, we will introduce AWS code pipeline.
+
+**Requirements**
+
+```
+$ aws --verison
+
+aws-cli/2.5.4 Python/3.9.11 Linux/5.13.0-39-generic exe/x86_64.ubuntu.20 prompt/off
+
+
+$ sls --version
+
+Framework Core: 3.12.0
+Plugin: 6.2.1
+SDK: 4.3.2
+
+```
+
+**Infra Prepare**
+
+We assume you already know AWS and AWS IAM. And got an authroized account for deploy resources.
+
+Infra resources is located at `.aws/infra.yml`.
+You need to deploy it with aws cloudformation.
+
+```
+cd .aws
+# go to aws console or use aws console tool to deploy `infra.yml` manually
+```
+
+**API powered by AWS Lambda and API Gateway**
+
+We introduced [@vendia/serverless-express](https://github.com/vendia/serverless-express) as an adapter layer. So we can start api server at local or deploy to AWS with same code.
+
+To deploy with command line :
+
+```
+cd packages/api
+sls deploy
+```
+
+It will tell API link `https://<your api>.execute-api.ap-northeast-1.amazonaws.com/v1/metadata`, click it.
+
+Congratulations, your api has been successfully deployed.
+
+## Helpful commands
 
 Build so types can be referenced
 

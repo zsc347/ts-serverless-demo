@@ -1,0 +1,60 @@
+service: tsw-demo-api
+
+frameworkVersion: ">=2.40.0"
+
+custom:
+    config: ${file(../../config.yml)}
+    hooks:
+        after:package:initialize:
+            - npm run build
+
+provider:
+    name: aws
+    stage: ${file(../../config.yml):stage}
+    runtime: nodejs14.x
+    region: ${self:custom.config.region}
+    timeout: 29
+    memorySize: 1024
+    deploymentBucket: ${self:provider.stage}-tsw-demo-deployment
+    versionFunctions: false
+    stackName: ${self:provider.stage}-${self:service}
+    tags:
+        Name: ${self:provider.stage}-${self:service}
+    role: !Sub arn:aws:iam::${AWS::AccountId}:role/${self:provider.stage}-tsw-demo-lambda-role
+
+package:
+    patterns:
+        - "!**"
+        - "build/**"
+
+functions:
+    api:
+        handler: build/lambda.handler
+        name: ${self:provider.stage}-${self:service}-http
+        events:
+            - httpApi:
+                  method: "*"
+                  path: /v1/{proxy+}
+
+resources:
+    Resources:
+        HttpApiStage:
+            Type: "AWS::ApiGatewayV2::Stage"
+            Properties:
+                ApiId: !Ref HttpApi
+                StageName: "$default"
+                AutoDeploy: true
+
+    Outputs:
+        ServerlessDeploymentBucketName:
+            Value: ${self:provider.deploymentBucket}
+            Export:
+                Name: ${self:provider.stackName}-ServerlessDeploymentBucketName
+        HttpApiUrl:
+            Export:
+                Name: ${self:provider.stage}-tsw-demo-api-url
+        HttpApiId:
+            Value:
+                Ref: HttpApi
+            Export:
+                Name: ${self:provider.stage}-tsw-demo-api

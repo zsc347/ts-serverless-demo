@@ -1,6 +1,5 @@
 import { logger } from "@tsw/common";
-
-import app from "../app";
+import app from "../app/app";
 
 function main() {
     const port = 3000;
