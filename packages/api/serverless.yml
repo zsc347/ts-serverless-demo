@@ -2,6 +2,9 @@ service: tsw-demo-api
 
 frameworkVersion: ">=2.40.0"
 
+plugins:
+    - serverless-hooks-plugin
+
 custom:
     config: ${file(../../config.yml)}
     hooks:
