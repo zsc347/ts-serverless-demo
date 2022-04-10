@@ -18,7 +18,7 @@ module.exports = {
     },
     plugins: ["@typescript-eslint"],
     // ignore all dist folder
-    ignorePatterns: ["**/dist", "node_moudules"],
+    ignorePatterns: ["**/dist", "**/build", "node_moudules"],
     rules: {
         quotes: 0,
         semi: 0,
