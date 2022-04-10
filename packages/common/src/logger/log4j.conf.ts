@@ -1,4 +1,3 @@
-import "source-map-support/register";
 import { Configuration } from "log4js";
 
 const log4jConfig: Configuration = {

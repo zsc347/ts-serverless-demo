@@ -13,13 +13,10 @@ process.on("unhandledRejection", err => {
 
 const fs = require("fs-extra");
 const webpack = require("webpack");
+const configFactory = require("../config/webpack.config");
 
 // Generate configuration
-const configFactory = require("../config/webpack.config");
 const config = configFactory();
-
-// Empty build folder
-fs.emptyDirSync("../build");
 
 // Create the production build and print the deployment instructions.
 async function build() {
@@ -35,4 +32,6 @@ async function build() {
     });
 }
 
+// Empty build folder
+fs.emptyDirSync("../build");
 build();
