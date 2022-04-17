@@ -4,6 +4,7 @@ frameworkVersion: ">=2.40.0"
 
 plugins:
     - serverless-hooks-plugin
+    - serverless-plugin-monorepo
 
 custom:
     config: ${file(../../config.yml)}
@@ -26,13 +27,15 @@ provider:
     role: !Sub arn:aws:iam::${AWS::AccountId}:role/${self:provider.stage}-tsw-demo-lambda-role
 
 package:
-    patterns:
-        - "!**"
-        - "build/**"
+    exclude:
+        - src/**
+        - node_modules/@tsw/common/src/**
+        - node_modules/@tsw/dao/src/**
+        - node_modules/@tsw/service/src/**
 
 functions:
     api:
-        handler: build/lambda.handler
+        handler: dist/lambda.handler
         name: ${self:provider.stage}-${self:service}-http
         events:
             - httpApi:

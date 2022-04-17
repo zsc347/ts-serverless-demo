@@ -8,7 +8,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "log4js": "^6.4.4"
+        "log4js": "^6.4.4",
+        "source-map-support": "^0.5.21"
     },
     "devDependencies": {
         "source-map-support": "^0.5.21"
