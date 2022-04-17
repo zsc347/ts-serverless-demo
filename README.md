@@ -54,7 +54,7 @@ API should be avavalible.
 
 ## Test
 
-Tests is configured for each sub module.
+Tests is configured with in each sub module.
 Currently only `service` module configured tests with jest(ts-jest).
 
 ```
@@ -105,7 +105,7 @@ Reference
 
 CI is based on github actions.
 
-Whenever push to any branch, `pre-commit` and `test` will run so we can check whether project in in good status.
+When push to any branch, `pre-commit` and `test` will be triggered so we can check whether project in in good status.
 
 Reference
 
@@ -113,13 +113,11 @@ Reference
 
 ## Deploy to AWS
 
-This section assume you already got an AWS account. And know basic usage of AWS.
+This section assume you already got an AWS account and know basic usage of AWS.
 
-We use [Serverless](https://www.serverless.com/framework/docs) framework to generate AWS cloudformation template files.
+We use [Serverless](https://www.serverless.com/framework/docs) framework to generate AWS cloudformation template files. Also we can deploy with `sls deploy` during development.
 
-Also developers can use it for deploy.
-
-For continuous deployment, we will introduce AWS code pipeline.
+For continuous deployment, we suggest introducing AWS code pipeline.
 
 **Requirements**
 
@@ -139,9 +137,9 @@ SDK: 4.3.2
 
 **Infra Prepare**
 
-We assume you already know AWS and AWS IAM. And got an authroized account for deploy resources.
+We assume you already know AWS and AWS IAM and got an authroized account for deploy resources.
 
-Infra resources is located at `.aws/infra.yml`.
+Infrastructure resources is located at `.aws/infra.yml`.
 You need to deploy it with aws cloudformation.
 
 ```
