@@ -19,7 +19,8 @@
         "packages/common",
         "packages/dao",
         "packages/service",
-        "packages/api"
+        "packages/api",
+        "packages/layer"
     ],
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.17.0",

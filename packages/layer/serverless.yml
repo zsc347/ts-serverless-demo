@@ -1,0 +1,47 @@
+service: tsw-demo-layer
+
+frameworkVersion: ">=2.40.0"
+
+plugins:
+    - serverless-hooks-plugin
+    - serverless-plugin-monorepo
+
+custom:
+    config: ${file(../../config.yml)}
+    hooks:
+        after:package:initialize:
+            - npm run build
+
+provider:
+    name: aws
+    stage: ${file(../../config.yml):stage}
+    runtime: nodejs14.x
+    region: ${self:custom.config.region}
+    timeout: 29
+    memorySize: 1024
+    deploymentBucket: ${self:provider.stage}-tsw-demo-deployment
+    versionFunctions: false
+    stackName: ${self:provider.stage}-${self:service}
+    tags:
+        Name: ${self:provider.stage}-${self:service}
+    iam:
+        role: !Sub arn:aws:iam::${AWS::AccountId}:role/${self:provider.stage}-tsw-demo-lambda-role
+
+layers:
+    logApi:
+        path: .
+        description: Audit layer
+        package:
+            patterns:
+                - "!**"
+                - "build/**"
+                - "extensions/**"
+
+resources:
+    Outputs:
+        LogApiLambdaLayerQualifiedArn:
+            Description: Current LogApi layer version
+            Value:
+                Ref: LogApiLambdaLayer
+            Export:
+                Name: ${self:provider.stackName}-LogApiLambdaLayerQualifiedArn

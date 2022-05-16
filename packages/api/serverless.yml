@@ -24,14 +24,15 @@ provider:
     stackName: ${self:provider.stage}-${self:service}
     tags:
         Name: ${self:provider.stage}-${self:service}
-    role: !Sub arn:aws:iam::${AWS::AccountId}:role/${self:provider.stage}-tsw-demo-lambda-role
+    iam:
+        role: !Sub arn:aws:iam::${AWS::AccountId}:role/${self:provider.stage}-tsw-demo-lambda-role
 
 package:
-    exclude:
-        - src/**
-        - node_modules/@tsw/common/src/**
-        - node_modules/@tsw/dao/src/**
-        - node_modules/@tsw/service/src/**
+    patterns:
+        - "!src/**"
+        - "!node_modules/@tsw/common/src/**"
+        - "!node_modules/@tsw/dao/src/**"
+        - "!node_modules/@tsw/service/src/**"
 
 functions:
     api:
@@ -41,6 +42,8 @@ functions:
             - httpApi:
                   method: "*"
                   path: /v1/{proxy+}
+        layers:
+            - ${cf:${self:provider.stage}-tsw-demo-layer.LogApiLambdaLayerQualifiedArn}
 
 resources:
     Resources:
